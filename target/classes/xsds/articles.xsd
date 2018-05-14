@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.concretepage.com/product-ws"
+           targetNamespace="http://www.concretepage.com/product-ws" elementFormDefault="qualified">
+
+    <xs:element name="addToBasketRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addToBasketResponse">
+        <xs:complexType/>
+    </xs:element>
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element name="productId" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getBasketRequest">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="getBasketResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product" type="tns:product" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteFromBasketRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteFromBasketResponse">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="getProductListRequest">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="getProductListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product" type="tns:product" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
